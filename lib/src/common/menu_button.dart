@@ -85,7 +85,7 @@ class _MenuButtonState extends State<MenuButton> {
             SvgPicture.asset(
               width: 30,
               height: 30,
-              "packages/flutter_side_menu/src/kdl_menu_simcards/assets/${widget.icon}",
+              "packages/menu_modular/lib/src/assets/${widget.icon}",
               colorFilter: ColorFilter.mode(
                   isHover ? Colors.black :  Colors.black, BlendMode.srcIn),
               semanticsLabel: "A red up arrow",
