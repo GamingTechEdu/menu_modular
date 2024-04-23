@@ -1,14 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:menu_modular/export.dart';
 
-void main() {
-  runApp(Example());
-}
-
-class Example extends StatelessWidget {
-  Example({super.key});
-
-  final themeB = ThemeData(
+final themeB = ThemeData(
     colorScheme: const ColorScheme(
       brightness: Brightness.light,
       primary: Colors.black,
@@ -54,45 +46,3 @@ class Example extends StatelessWidget {
     ),
     useMaterial3: false,
   );
-
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      builder: (BuildContext context, Widget? child) {
-        return ScrollConfiguration(
-          behavior: WidgetScrollBehavior(),
-          child: child!,
-        );
-      },
-      debugShowCheckedModeBanner: false,
-      theme: themeB,
-      home: const MyExample(),
-    );
-  }
-}
-
-class MyExample extends StatefulWidget {
-  const MyExample({super.key});
-
-  @override
-  State<MyExample> createState() => _MyExampleState();
-}
-
-class _MyExampleState extends State<MyExample> {
-  final KdlController kdlController = KdlController();
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(
-        child: SimcardsManager(
-          controller: kdlController,
-          onOutput: (value) {
-            print("VALUE--->>>");
-            print(value);
-          },
-        ),
-      ),
-    );
-  }
-}

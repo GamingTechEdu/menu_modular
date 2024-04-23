@@ -3,9 +3,6 @@ import 'package:flutter/material.dart';
 
 import 'package:flutter/services.dart';
 import 'package:intl/intl.dart';
-import 'package:provider/provider.dart';
-
-
 
 import '../api/api_client.dart';
 import '../common/global_config.dart';
@@ -13,7 +10,6 @@ import '../common/simcard_focusnode.dart';
 import '../common/tabbar_back.dart';
 import '../kdl_controller.dart';
 import '../models/task_model.dart';
-import 'widgets/cam.dart';
 import 'widgets/date_textform.dart';
 import 'widgets/iccid_textform.dart';
 import 'widgets/ip_textform.dart';
@@ -227,12 +223,12 @@ class _SimcardIncludeState extends State<SimcardInclude> {
                                 onChanged: (value) =>
                                     widget.taskModel.idObservations = value,
                               ),                    
-                              GlobalConfig.formVerticalSpace,
-                              SizedBox(
-                                width: 300,
-                                height: 200,
-                                child: CameraScreen(),
-                              ),
+                              // GlobalConfig.formVerticalSpace,
+                              // SizedBox(
+                              //   width: 300,
+                              //   height: 200,
+                              //   child: CameraScreen(),
+                              // ),
                               GlobalConfig.formVerticalSpace,
                               SizedBox(
                                 width: double.infinity,

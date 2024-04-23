@@ -4,7 +4,7 @@ export 'src/models/task_model.dart';
 export 'src/kdl_controller.dart';
 export 'src/simcards_manager.dart';
 export 'src/widget_scroll_behavior.dart';
-export 'src/toggle_tabs.dart';
+export 'src/trash/toggle_tabs.dart';
 export 'src/common/label_value.dart';
 export 'src/api/models/models_simcard.dart';
 export 'src/common/global_config.dart';
