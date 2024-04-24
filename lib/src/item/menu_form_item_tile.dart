@@ -7,12 +7,10 @@ import '../utils/utils.dart';
 class MenuFormItemTile extends StatefulWidget {
   final MenuFormItemDataTile data;
   // final bool isOpen;
-  // final double minWidth;
   const MenuFormItemTile({
     super.key,
     required this.data,
     // required this.isOpen,
-    // required this.minWidth,
   });
 
   @override
@@ -20,19 +18,33 @@ class MenuFormItemTile extends StatefulWidget {
 }
 
 class _MenuFormItemTileState extends State<MenuFormItemTile> {
+  bool isHover = false;
   @override
   Widget build(BuildContext context) {
     return Container(
       height: widget.data.itemHeight,
       margin: widget.data.margin,
       child: TextButton(
-          style: ButtonStyle(
-            shape: shape(context),
-            backgroundColor: backgroundColor(context),
-            foregroundColor: foregroundColor(context),
-          ),
-          onPressed: () {},
-          child: _createView(context: context)),
+        onHover: (value) {
+          setState(() {
+            isHover = value;
+          });
+        },
+        style: ButtonStyle(
+          overlayColor: MaterialStateProperty.all(Colors.transparent),
+          elevation: _elevation(context),
+          shadowColor: MaterialStateProperty.all(Colors.black),
+          shape: shape(context),
+          backgroundColor: backgroundColor(context),
+          foregroundColor: foregroundColor(context),
+        ),
+        onPressed: widget.data.onPressed,
+        child:  Material(
+          color: const Color.fromARGB(0, 226, 51, 51),
+          clipBehavior: Clip.hardEdge,
+          child: _createView(context: context),
+        ),
+      ),
     );
   }
 
@@ -44,17 +56,7 @@ class _MenuFormItemTileState extends State<MenuFormItemTile> {
     final hasIcon = widget.data.icon != null;
     final hasTitle = widget.data.title != null;
     final hasIconLeading = widget.data.iconLeading != null;
-    // if (hasIcon && hasTitle) {
-    //   return Row(
-    //     children: [
-    //       _icon(),
-    //       Expanded(
-    //         child: _title(context: context),
-    //       ),
-    //     ],
-    //   );
-    // } else 
-    if (hasIcon && hasTitle && hasIconLeading) {
+    if (hasIcon && hasTitle || hasIconLeading) {
       return Row(
         children: [
           _icon(),
@@ -62,7 +64,6 @@ class _MenuFormItemTileState extends State<MenuFormItemTile> {
           Expanded(
             child: _title(context: context),
           ),
-          const Spacer(),
           _iconLeading()
         ],
       );
@@ -80,39 +81,61 @@ class _MenuFormItemTileState extends State<MenuFormItemTile> {
     }
   }
 
+  
+
+  MaterialStateProperty<double?>? _elevation(BuildContext context) {
+    return widget.data.elevation != null
+        ? MaterialStateProperty.all(widget.data.elevation)
+        : MaterialStateProperty.all(6);
+  }
+
   Widget _icon() {
+    // double buttonSize = MediaQuery.sizeOf(context).width;
     return widget.data.icon != null
-        ? SizedBox(height: double.maxFinite, child: widget.data.icon)
+        ? SizedBox(
+          // width: widget.minWidth - widget.data.margin.horizontal,
+            height: double.maxFinite,
+            child: IconTheme(
+              data: Theme.of(context)
+                  .iconTheme
+                  .copyWith(color: getSelectedColor()),
+              child: widget.data.icon!,
+            ),
+          )
         : const SizedBox.shrink();
   }
 
   Widget _iconLeading() {
+    double buttonSize = MediaQuery.sizeOf(context).width;
     return widget.data.iconLeading != null
-        ? SizedBox(height: double.maxFinite, child: widget.data.iconLeading)
-        : const SizedBox.shrink();
+        ? Visibility(
+            visible: buttonSize < 120 ? false : true,
+            child: SizedBox(
+                height: double.maxFinite, child: widget.data.iconLeading),
+          )
+        : Visibility(
+            visible: buttonSize < 120 ? false : true,
+            child: const SizedBox(
+              height: double.maxFinite,
+              child: Icon(Icons.chevron_right_outlined),
+            ),
+          );
   }
 
   Widget _title({required BuildContext context}) {
     final TextStyle? titleStyle =
         widget.data.titleStyle ?? Theme.of(context).textTheme.bodyLarge;
-    final TextStyle? selectedTitleStyle =
-        widget.data.selectedTitleStyle ?? Theme.of(context).textTheme.bodyLarge;
     return AutoSizeText(
       widget.data.title!,
-      style: widget.data.isSelected
-          ? selectedTitleStyle?.copyWith(color: getSelectedColor())
-          : titleStyle?.copyWith(color: getSelectedColor()),
+      style: titleStyle?.copyWith(color: getSelectedColor()),
       maxLines: 1,
       overflow: TextOverflow.ellipsis,
     );
   }
 
   Color getSelectedColor() {
-    return widget.data.isSelected
-        ? widget.data.selectedTitleStyle?.color ??
-            Theme.of(context).colorScheme.onSecondaryContainer
-        : widget.data.titleStyle?.color ??
-            Theme.of(context).colorScheme.onSurfaceVariant;
+    return widget.data.titleStyle?.color ??
+        Theme.of(context).colorScheme.onSurfaceVariant;
   }
 
   MaterialStateProperty<OutlinedBorder?>? shape(BuildContext context) {
@@ -125,24 +148,19 @@ class _MenuFormItemTileState extends State<MenuFormItemTile> {
 
   MaterialStateProperty<Color?>? backgroundColor(BuildContext context) {
     return widget.data.backgroundColor != null
-        ? MaterialStateProperty.all(widget.data.backgroundColor)
-        : MaterialStateProperty.all(const Color.fromARGB(255, 207, 207, 207));
+        ? MaterialStateProperty.all(
+            isHover ? widget.data.backgroundColor : widget.data.backgroundColor)
+        : MaterialStateProperty.all(isHover
+            ? const Color.fromARGB(255, 180, 180, 180)
+            : const Color.fromARGB(255, 207, 207, 207));
   }
 
   MaterialStateProperty<Color?>? foregroundColor(BuildContext context) {
     return widget.data.foregroundColor != null
-        ? MaterialStateProperty.all(widget.data.foregroundColor)
-        : MaterialStateProperty.all(Colors.black);
-  }
-
-  List<BoxShadow> boxShadow(BuildContext context) {
-    return [
-      BoxShadow(
-        color: Colors.black.withOpacity(0.3),
-        spreadRadius: 1,
-        blurRadius: 2,
-        offset: const Offset(1, 3),
-      ),
-    ];
+        ? MaterialStateProperty.all(
+            isHover ? widget.data.foregroundColor : widget.data.foregroundColor)
+        : MaterialStateProperty.all(isHover
+            ? Color.fromARGB(255, 0, 0, 0)
+            : const Color.fromARGB(255, 0, 0, 0));
   }
 }

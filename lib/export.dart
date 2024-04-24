@@ -1,16 +1,5 @@
-library component_menu;
+library menu_modular;
 
-export 'src/models/task_model.dart';
-export 'src/kdl_controller.dart';
-export 'src/simcards_manager.dart';
-export 'src/widget_scroll_behavior.dart';
-export 'src/trash/toggle_tabs.dart';
-export 'src/common/label_value.dart';
-export 'src/api/models/models_simcard.dart';
-export 'src/common/global_config.dart';
-export 'src/common/simcard_focusnode.dart';
-export 'src/simcard/widgets/simcard_supplier.dart';
-export 'src/simcard/widgets/iccid_textform.dart';
-export 'src/simcard/widgets/simcon_textform.dart';
-export 'src/simcard/widgets/msisdn_textform.dart';
-export 'src/simcard/widgets/ip_textform.dart';
+export 'src/menu_form.dart';
+export 'src/data/menu_form_data.dart';
+export 'src/data/menu_form_item_data.dart';

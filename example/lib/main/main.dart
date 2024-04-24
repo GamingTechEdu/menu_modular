@@ -1,15 +1,51 @@
 import 'package:flutter/material.dart';
 import 'package:menu_modular/export.dart';
-import 'package:menu_modular/export2.dart';
-
-import 'config/config.dart';
 
 void main() {
-  runApp(const MaterialApp(
-    debugShowCheckedModeBanner: false,
-    home: MenuForm(),
-  ));
+  runApp(MaterialApp(home: const MyWidget()));
 }
+
+class MyWidget extends StatelessWidget {
+  const MyWidget({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: MenuForm(
+      builder: MenuFormData(
+        buttons: [
+          MenuFormItemDataTile(
+            title: "Incluir SIMUC",
+            icon: const Icon(Icons.add_box_outlined, size: 25),
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const MyWidget(),
+                ),
+              );
+            },
+          ),
+          MenuFormItemDataTile(
+              title: "Editar SIMUC",
+              icon: const Icon(Icons.place, size: 25),
+              onPressed: () {}),
+          MenuFormItemDataTile(
+              title: "Exportar Relatório",
+              icon: const Icon(Icons.play_arrow, size: 25),
+              onPressed: () {}),
+          MenuFormItemDataTile(
+              title: "Excluir SIMUC",
+              icon: const Icon(Icons.cabin, size: 25),
+              onPressed: () {}),
+        ],
+      ),
+    ),
+    );
+  }
+}
+
+
 
 // class Example extends StatelessWidget {
 //   Example({super.key});

@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
 
-
 import 'data/data.dart';
 import 'item/item.dart';
 import 'utils/utils.dart';
 
 class MenuFormBody extends StatelessWidget {
   final MenuFormData data;
-  const MenuFormBody({super.key, required this.data, });
+  const MenuFormBody({super.key, required this.data});
 
   @override
   Widget build(BuildContext context) {
@@ -25,9 +24,7 @@ class MenuFormBody extends StatelessWidget {
                 itemBuilder: (context, index) {
                   final MenuFormItemData button = data.buttons![index];
                   if (button is MenuFormItemDataTile) {
-                    return MenuFormItemTile(
-                      data: button
-                    );
+                    return MenuFormItemTile(data: button);
                   }
                 },
               ),
