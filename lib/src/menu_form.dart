@@ -23,6 +23,4 @@ class _MenuFormState extends State<MenuForm> {
       data: widget.builder,
     );
   }
-
-  
 }
