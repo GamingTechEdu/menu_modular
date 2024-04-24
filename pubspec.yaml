@@ -60,11 +60,11 @@ flutter:
   # https://flutter.dev/custom-fonts/#from-packages
 
 
-  assets:
-    - lib/src/assets/include.svg
-    - lib/src/assets/edit.svg
-    - lib/src/assets/include_batch.svg
-    - lib/src/assets/remove.svg
-    - lib/src/assets/replace.svg
-    - lib/src/assets/sectorize.svg
+  # assets:
+  #   - lib/src/assets/include.svg
+  #   - lib/src/assets/edit.svg
+  #   - lib/src/assets/include_batch.svg
+  #   - lib/src/assets/remove.svg
+  #   - lib/src/assets/replace.svg
+  #   - lib/src/assets/sectorize.svg
 
