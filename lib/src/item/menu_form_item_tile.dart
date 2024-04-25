@@ -23,8 +23,6 @@ class _MenuFormItemTileState extends State<MenuFormItemTile> {
   Widget build(BuildContext context) {
     return LayoutBuilder(
     builder: (context, constraints) {
-      print('Tamanho do Container: ${constraints.maxHeight} de altura e ${constraints.maxWidth} de largura');
-      
       return Container(
         height: widget.data.itemHeight,
         margin: widget.data.margin,
