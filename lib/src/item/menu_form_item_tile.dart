@@ -21,37 +21,45 @@ class _MenuFormItemTileState extends State<MenuFormItemTile> {
   bool isHover = false;
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: widget.data.itemHeight,
-      margin: widget.data.margin,
-      decoration: ShapeDecoration(
+    return LayoutBuilder(
+    builder: (context, constraints) {
+      print('Tamanho do Container: ${constraints.maxHeight} de altura e ${constraints.maxWidth} de largura');
+      
+      return Container(
+        height: widget.data.itemHeight,
+        margin: widget.data.margin,
+        decoration: ShapeDecoration(
           shape: shape(context),
           color: backgroundColor(context),
           shadows: [
             BoxShadow(
-                color: Colors.black.withOpacity(0.2),
-                blurRadius: 1,
-                spreadRadius: 1,
-                offset: const Offset(1, 2))
-          ]),
-      child: Material(
-        color: const Color.fromARGB(0, 226, 51, 51),
-        clipBehavior: Clip.hardEdge,
-        shape: shape(context),
-        child: InkWell(
-          onTap: widget.data.onTap,
-          hoverColor: widget.data.hoverColor ?? Colors.grey,
-          child: _createView(context: context),
+              color: Colors.black.withOpacity(0.2),
+              blurRadius: 1,
+              spreadRadius: 1,
+              offset: const Offset(1, 2),
+            ),
+          ],
         ),
-      ),
-    );
+        child: Material(
+          color: const Color.fromARGB(0, 226, 51, 51),
+          clipBehavior: Clip.hardEdge,
+          shape: shape(context),
+          child: InkWell(
+            onTap: widget.data.onTap,
+            hoverColor: widget.data.hoverColor ?? Colors.grey,
+            child: _createView(context: context, constraints: constraints),
+          ),
+        ),
+      );
+    },
+  );
   }
 
-  Widget _createView({required BuildContext context}) {
-    return _content(context: context);
+  Widget _createView({required BuildContext context, BoxConstraints? constraints}) {
+    return _content(context: context, constraints: constraints);
   }
 
-  Widget _content({required BuildContext context}) {
+  Widget _content({required BuildContext context, BoxConstraints? constraints}) {
     final hasIcon = widget.data.icon != null;
     final hasTitle = widget.data.title != null;
     final hasIconLeading = widget.data.iconLeading != null;
@@ -62,6 +70,7 @@ class _MenuFormItemTileState extends State<MenuFormItemTile> {
           Expanded(
             child: _title(context: context),
           ),
+          if(constraints!.maxWidth >= 120)
           _iconLeading()
         ],
       );
@@ -89,21 +98,14 @@ class _MenuFormItemTileState extends State<MenuFormItemTile> {
         : const SizedBox.shrink();
   }
 
-  Widget _iconLeading() {
-    double buttonSize = MediaQuery.sizeOf(context).width;
+    Widget _iconLeading() {
     return widget.data.iconLeading != null
-        ? Visibility(
-            visible: buttonSize < 120 ? false : true,
-            child: SizedBox(
-                height: double.maxFinite, child: widget.data.iconLeading),
-          )
-        : Visibility(
-            visible: buttonSize < 120 ? false : true,
-            child: const SizedBox(
-              height: double.maxFinite,
-              child: Icon(Icons.chevron_right_outlined),
-            ),
-          );
+        ? SizedBox(
+            height: double.maxFinite, child: widget.data.iconLeading)
+        : const SizedBox(
+          height: double.maxFinite,
+          child: Icon(Icons.chevron_right_outlined),
+        );
   }
 
   Widget _title({required BuildContext context}) {
