@@ -20,7 +20,7 @@ class MyWidget extends StatelessWidget {
         data: MenuFormData(
           buttons: [
             MenuFormItemDataTile(
-              title: "Incluir SIMUC",
+              title: "Incluir",
               icon: const Icon(Icons.add_box_outlined),
               onTap: () {
                 Navigator.push(
