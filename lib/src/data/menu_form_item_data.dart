@@ -16,7 +16,7 @@ class MenuFormItemDataTile extends MenuFormItemData {
   final TextStyle? titleStyle;
   final Color? foregroundColor;
   final List<BoxShadow>? boxShadow;
-  final VoidCallback onPressed;
+  final VoidCallback onTap;
   final EdgeInsetsGeometry? padding;
   final BorderRadiusGeometry? borderRadius;
   final EdgeInsetsDirectional margin;
@@ -24,7 +24,7 @@ class MenuFormItemDataTile extends MenuFormItemData {
 
   MenuFormItemDataTile({
     this.elevation, 
-    required this.onPressed,
+    required this.onTap,
     this.iconLeading,
     this.title,
     this.icon,

@@ -24,24 +24,23 @@ class _MenuFormItemTileState extends State<MenuFormItemTile> {
     return Container(
       height: widget.data.itemHeight,
       margin: widget.data.margin,
-      child: TextButton(
-        onHover: (value) {
-          setState(() {
-            isHover = value;
-          });
-        },
-        style: ButtonStyle(
-          overlayColor: MaterialStateProperty.all(Colors.transparent),
-          elevation: _elevation(context),
-          shadowColor: MaterialStateProperty.all(Colors.black),
+      decoration: ShapeDecoration(
           shape: shape(context),
-          backgroundColor: backgroundColor(context),
-          foregroundColor: foregroundColor(context),
-        ),
-        onPressed: widget.data.onPressed,
-        child:  Material(
-          color: const Color.fromARGB(0, 226, 51, 51),
-          clipBehavior: Clip.hardEdge,
+          color: backgroundColor(context),
+          shadows: [
+            BoxShadow(
+                color: Colors.black.withOpacity(0.2),
+                blurRadius: 1,
+                spreadRadius: 1,
+                offset: const Offset(1, 2))
+          ]),
+      child: Material(
+        color: const Color.fromARGB(0, 226, 51, 51),
+        clipBehavior: Clip.hardEdge,
+        shape: shape(context),
+        child: InkWell(
+          onTap: widget.data.onTap,
+          hoverColor: widget.data.hoverColor ?? Colors.grey,
           child: _createView(context: context),
         ),
       ),
@@ -60,7 +59,6 @@ class _MenuFormItemTileState extends State<MenuFormItemTile> {
       return Row(
         children: [
           _icon(),
-          const SizedBox(width: 10),
           Expanded(
             child: _title(context: context),
           ),
@@ -81,26 +79,12 @@ class _MenuFormItemTileState extends State<MenuFormItemTile> {
     }
   }
 
-  
-
-  MaterialStateProperty<double?>? _elevation(BuildContext context) {
-    return widget.data.elevation != null
-        ? MaterialStateProperty.all(widget.data.elevation)
-        : MaterialStateProperty.all(6);
-  }
-
   Widget _icon() {
-    // double buttonSize = MediaQuery.sizeOf(context).width;
     return widget.data.icon != null
         ? SizedBox(
-          // width: widget.minWidth - widget.data.margin.horizontal,
+            width: 50 - widget.data.margin.horizontal,
             height: double.maxFinite,
-            child: IconTheme(
-              data: Theme.of(context)
-                  .iconTheme
-                  .copyWith(color: getSelectedColor()),
-              child: widget.data.icon!,
-            ),
+            child: widget.data.icon!,
           )
         : const SizedBox.shrink();
   }
@@ -138,29 +122,19 @@ class _MenuFormItemTileState extends State<MenuFormItemTile> {
         Theme.of(context).colorScheme.onSurfaceVariant;
   }
 
-  MaterialStateProperty<OutlinedBorder?>? shape(BuildContext context) {
+  OutlinedBorder shape(BuildContext context) {
     return widget.data.borderRadius != null
-        ? MaterialStateProperty.all<OutlinedBorder?>(
-            RoundedRectangleBorder(borderRadius: widget.data.borderRadius!))
-        : MaterialStateProperty.all<OutlinedBorder?>(
-            RoundedRectangleBorder(borderRadius: BorderRadius.circular(4)));
+        ? RoundedRectangleBorder(borderRadius: widget.data.borderRadius!)
+        : RoundedRectangleBorder(borderRadius: BorderRadius.circular(4));
   }
 
-  MaterialStateProperty<Color?>? backgroundColor(BuildContext context) {
+  Color? backgroundColor(BuildContext context) {
     return widget.data.backgroundColor != null
-        ? MaterialStateProperty.all(
-            isHover ? widget.data.backgroundColor : widget.data.backgroundColor)
-        : MaterialStateProperty.all(isHover
+        ? isHover
+            ? widget.data.backgroundColor
+            : widget.data.backgroundColor
+        : isHover
             ? const Color.fromARGB(255, 180, 180, 180)
-            : const Color.fromARGB(255, 207, 207, 207));
-  }
-
-  MaterialStateProperty<Color?>? foregroundColor(BuildContext context) {
-    return widget.data.foregroundColor != null
-        ? MaterialStateProperty.all(
-            isHover ? widget.data.foregroundColor : widget.data.foregroundColor)
-        : MaterialStateProperty.all(isHover
-            ? Color.fromARGB(255, 0, 0, 0)
-            : const Color.fromARGB(255, 0, 0, 0));
+            : const Color.fromARGB(255, 207, 207, 207);
   }
 }
