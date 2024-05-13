@@ -22,42 +22,44 @@ class _MenuFormItemTileState extends State<MenuFormItemTile> {
   @override
   Widget build(BuildContext context) {
     return LayoutBuilder(
-    builder: (context, constraints) {
-      return Container(
-        height: widget.data.itemHeight,
-        margin: widget.data.margin,
-        decoration: ShapeDecoration(
-          shape: shape(context),
-          color: backgroundColor(context),
-          shadows: [
-            BoxShadow(
-              color: Colors.black.withOpacity(0.2),
-              blurRadius: 1,
-              spreadRadius: 1,
-              offset: const Offset(1, 2),
-            ),
-          ],
-        ),
-        child: Material(
-          color: const Color.fromARGB(0, 226, 51, 51),
-          clipBehavior: Clip.hardEdge,
-          shape: shape(context),
-          child: InkWell(
-            onTap: widget.data.onTap,
-            hoverColor: widget.data.hoverColor ?? Colors.grey,
-            child: _createView(context: context, constraints: constraints),
+      builder: (context, constraints) {
+        return Container(
+          height: widget.data.itemHeight,
+          margin: widget.data.margin,
+          decoration: ShapeDecoration(
+            shape: shape(context),
+            color: backgroundColor(context),
+            shadows: widget.data.boxShadow ??
+                [
+                  BoxShadow(
+                      color: Colors.black.withOpacity(0.5),
+                      blurRadius: 1,
+                      blurStyle: BlurStyle.solid,
+                      offset: Offset(0, 2))
+                ],
           ),
-        ),
-      );
-    },
-  );
+          child: Material(
+            color: const Color.fromARGB(0, 226, 51, 51),
+            clipBehavior: Clip.hardEdge,
+            shape: shape(context),
+            child: InkWell(
+              onTap: widget.data.onTap,
+              hoverColor: widget.data.hoverColor ?? Colors.grey,
+              child: _createView(context: context, constraints: constraints),
+            ),
+          ),
+        );
+      },
+    );
   }
 
-  Widget _createView({required BuildContext context, BoxConstraints? constraints}) {
+  Widget _createView(
+      {required BuildContext context, BoxConstraints? constraints}) {
     return _content(context: context, constraints: constraints);
   }
 
-  Widget _content({required BuildContext context, BoxConstraints? constraints}) {
+  Widget _content(
+      {required BuildContext context, BoxConstraints? constraints}) {
     final hasIcon = widget.data.icon != null;
     final hasTitle = widget.data.title != null;
     final hasIconLeading = widget.data.iconLeading != null;
@@ -68,8 +70,7 @@ class _MenuFormItemTileState extends State<MenuFormItemTile> {
           Expanded(
             child: _title(context: context),
           ),
-          if(constraints!.maxWidth >= 120)
-          _iconLeading()
+          if (constraints!.maxWidth >= 120) _iconLeading()
         ],
       );
     } else if (hasIcon) {
@@ -96,14 +97,13 @@ class _MenuFormItemTileState extends State<MenuFormItemTile> {
         : const SizedBox.shrink();
   }
 
-    Widget _iconLeading() {
+  Widget _iconLeading() {
     return widget.data.iconLeading != null
-        ? SizedBox(
-            height: double.maxFinite, child: widget.data.iconLeading)
+        ? SizedBox(height: double.maxFinite, child: widget.data.iconLeading)
         : const SizedBox(
-          height: double.maxFinite,
-          child: Icon(Icons.chevron_right_outlined),
-        );
+            height: double.maxFinite,
+            child: Icon(Icons.chevron_right_outlined),
+          );
   }
 
   Widget _title({required BuildContext context}) {
