@@ -35,7 +35,7 @@ class _MenuFormItemTileState extends State<MenuFormItemTile> {
                       color: Colors.black.withOpacity(0.5),
                       blurRadius: 1,
                       blurStyle: BlurStyle.solid,
-                      offset: Offset(0, 2))
+                      offset: const Offset(0, 2))
                 ],
           ),
           child: Material(
