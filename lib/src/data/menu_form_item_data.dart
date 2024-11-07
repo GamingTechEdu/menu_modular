@@ -47,8 +47,10 @@ class HeaderRowDataButtons extends MenuFormItemData {
   final Widget? icon;
   final Color? backgroundColor;
   final VoidCallback onPressed;
+  final List<PopupMenuEntry<String>> Function(BuildContext)? itemBuilder;
 
   HeaderRowDataButtons({
+    this.itemBuilder, 
     required this.onPressed,
     this.icon,
     this.backgroundColor,
