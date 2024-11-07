@@ -22,3 +22,26 @@ class _ButtonFormItemHeaderState extends State<ButtonFormItemHeader> {
   }
 }
 
+// PopupMenuButton<String>(
+//       icon: widget.data.icon!, // Ícone do botão
+//       color: widget.data.backgroundColor, // Cor de fundo do popup
+//       onSelected: (String value) {
+//         // Ação quando uma opção for selecionada
+//         print("Opção selecionada: $value");
+//         // Chame uma função ou modifique o estado conforme necessário
+//       },
+//       itemBuilder: (BuildContext context) => <PopupMenuEntry<String>>[
+//         const PopupMenuItem<String>(
+//           value: 'Opção 1',
+//           child: Text('Incluir Simuc'),
+//         ),
+//         const PopupMenuItem<String>(
+//           value: 'Opção 2',
+//           child: Text('Opção 2'),
+//         ),
+//         const PopupMenuItem<String>(
+//           value: 'Opção 3',
+//           child: Text('Opção 3'),
+//         ),
+//       ],
+//     );

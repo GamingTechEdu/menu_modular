@@ -21,6 +21,8 @@ class MyWidget extends StatelessWidget {
   }
 }
 
+
+
 class Teste extends StatelessWidget {
   const Teste({super.key});
 
@@ -34,17 +36,14 @@ class Teste extends StatelessWidget {
           HeaderRowDataButtons(
             onPressed: () => print("01"),
             icon: const Icon(Icons.add),
-            backgroundColor: Colors.red,
           ),
           HeaderRowDataButtons(
             onPressed: () => print("02"),
             icon: const Icon(Icons.refresh),
-            backgroundColor: Colors.green,
           ),
           HeaderRowDataButtons(
             onPressed: () => print("03"),
             icon: const Icon(Icons.add),
-            backgroundColor: Colors.red,
           ),
           TextHeaderRowDataButtons(onTap: () {}, title: "Teste1")
         ],
