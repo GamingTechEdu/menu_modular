@@ -17,7 +17,7 @@ class MyWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(body: MenuFunctionsManager());
+    return const Scaffold(body: Teste());
   }
 }
 
@@ -28,6 +28,26 @@ class Teste extends StatelessWidget {
   Widget build(BuildContext context) {
     return MenuFormBody(
       data: MenuFormData(
+        paddingHorizontalHeader: 5,
+        paddingExternalHeader: const EdgeInsets.only(bottom: 0.0),
+        headerButtons: [
+          HeaderRowDataButtons(
+            onPressed: () => print("01"),
+            icon: const Icon(Icons.add),
+            backgroundColor: Colors.red,
+          ),
+          HeaderRowDataButtons(
+            onPressed: () => print("02"),
+            icon: const Icon(Icons.refresh),
+            backgroundColor: Colors.green,
+          ),
+          HeaderRowDataButtons(
+            onPressed: () => print("03"),
+            icon: const Icon(Icons.add),
+            backgroundColor: Colors.red,
+          ),
+          TextHeaderRowDataButtons(onTap: () {}, title: "Teste1")
+        ],
         buttons: [
           MenuFormItemDataTile(
             title: "Incluir",
@@ -54,10 +74,6 @@ class Teste extends StatelessWidget {
             icon: const Icon(Icons.cabin),
             onTap: () {},
           ),
-          MenuFormItemDataTile(
-            title: "Teste",
-            onTap: (){}
-          )
         ],
       ),
     );

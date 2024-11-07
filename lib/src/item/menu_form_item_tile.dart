@@ -6,11 +6,9 @@ import '../utils/utils.dart';
 
 class MenuFormItemTile extends StatefulWidget {
   final MenuFormItemDataTile data;
-  // final bool isOpen;
   const MenuFormItemTile({
     super.key,
     required this.data,
-    // required this.isOpen,
   });
 
   @override
@@ -32,10 +30,11 @@ class _MenuFormItemTileState extends State<MenuFormItemTile> {
             shadows: widget.data.boxShadow ??
                 [
                   BoxShadow(
-                      color: Colors.black.withOpacity(0.5),
-                      blurRadius: 1,
-                      blurStyle: BlurStyle.solid,
-                      offset: const Offset(0, 2))
+                    color: Colors.black.withOpacity(0.5),
+                    blurRadius: 1,
+                    blurStyle: BlurStyle.solid,
+                    offset: const Offset(0, 2),
+                  )
                 ],
           ),
           child: Material(
@@ -45,7 +44,10 @@ class _MenuFormItemTileState extends State<MenuFormItemTile> {
             child: InkWell(
               onTap: widget.data.onTap,
               hoverColor: widget.data.hoverColor ?? Colors.grey,
-              child: _createView(context: context, constraints: constraints),
+              child: _createView(
+                context: context,
+                constraints: constraints,
+              ),
             ),
           ),
         );
@@ -53,13 +55,11 @@ class _MenuFormItemTileState extends State<MenuFormItemTile> {
     );
   }
 
-  Widget _createView(
-      {required BuildContext context, BoxConstraints? constraints}) {
+  Widget _createView({required BuildContext context, BoxConstraints? constraints}) {
     return _content(context: context, constraints: constraints);
   }
 
-  Widget _content(
-      {required BuildContext context, BoxConstraints? constraints}) {
+  Widget _content({required BuildContext context, BoxConstraints? constraints}) {
     final hasIcon = widget.data.icon != null;
     final hasTitle = widget.data.title != null;
     final hasIconLeading = widget.data.iconLeading != null;
