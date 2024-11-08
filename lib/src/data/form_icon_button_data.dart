@@ -15,6 +15,6 @@ class OptionItem<T> {
 
   @override
   String toString() {
-    return 'Instance of OptionItem(value:$value, id:$id)';
+    return 'Instance of OptionItem(value:$value, id:$id, onPressed:$onPressed)';
   }
 }

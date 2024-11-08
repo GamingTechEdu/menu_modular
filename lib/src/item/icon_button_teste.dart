@@ -22,7 +22,7 @@ class _ButtonIconState extends State<ButtonIcon> {
         IconButton(
           focusColor: Colors.transparent,
           hoverColor: Colors.transparent,
-          onPressed: () => widget.optionItem.onPressed,
+          onPressed: () => widget.optionItem.onPressed(),
           icon: Icon(widget.optionItem.icon),
         )
       ],

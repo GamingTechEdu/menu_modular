@@ -20,25 +20,29 @@ class MyApp extends StatelessWidget {
       minWidth: 100,
       options: [
         OptionItem(
-            onPressed: () => print("1"),
-            id: "1",
-            value: "Teste",
-            icon: Icons.add),
+          onPressed: () => print("1"),
+          id: "1",
+          value: "Teste",
+          icon: Icons.add,
+        ),
         OptionItem(
-            onPressed: () => print("2"),
-            id: "1",
-            value: "Teste",
-            icon: Icons.refresh),
+          onPressed: () => print("2"),
+          id: "1",
+          value: "Teste",
+          icon: Icons.refresh,
+        ),
         OptionItem(
-            onPressed: () => print("3"),
-            id: "1",
-            value: "Teste",
-            icon: Icons.edit),
+          onPressed: () => print("3"),
+          id: "1",
+          value: "Teste",
+          icon: Icons.edit,
+        ),
         OptionItem(
-            onPressed: () => print("4"),
-            id: "1",
-            value: "Teste",
-            icon: Icons.delete)
+          onPressed: () => print("4"),
+          id: "1",
+          value: "Teste",
+          icon: Icons.delete,
+        )
       ],
     );
   }

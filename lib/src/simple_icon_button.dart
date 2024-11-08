@@ -9,6 +9,7 @@ class SimpleIconButton extends FormField<List<OptionItem>> {
   final double maxWidth;
 
   SimpleIconButton({
+    super.key,
     required this.options,
     this.minWidth = 230,
     this.maxWidth = 230,
