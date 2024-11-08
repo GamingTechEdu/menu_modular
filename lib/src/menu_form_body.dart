@@ -24,26 +24,23 @@ class MenuFormBody extends StatelessWidget {
             Padding(
               padding: data.paddingExternalHeader ??
                   const EdgeInsets.only(bottom: 8.0),
-              child: SingleChildScrollView(
-                scrollDirection: Axis.horizontal,
-                child: Row(
-                  children: data.headerButtons!.map((button) {
-                    Widget buttonWidget;
-                    if (button is HeaderRowDataButtons) {
-                      buttonWidget = ButtonFormItemHeader(data: button);
-                    } else if (button is TextHeaderRowDataButtons){
-                      buttonWidget = TextButtonFormItemHeader(data: button);
-                    }else {
-                      buttonWidget = Container();
-                    }
-                    return Padding(
-                      padding: EdgeInsets.symmetric(
-                        horizontal: data.paddingHorizontalHeader,
-                      ),
-                      child: buttonWidget,
-                    );
-                  }).toList(),
-                ),
+              child: Row(
+                children: data.headerButtons!.map((button) {
+                  Widget buttonWidget;
+                  if (button is HeaderRowDataButtons) {
+                    buttonWidget = ButtonFormItemHeader(data: button);
+                  } else if (button is TextHeaderRowDataButtons){
+                    buttonWidget = TextButtonFormItemHeader(data: button);
+                  }else {
+                    buttonWidget = Container();
+                  }
+                  return Padding(
+                    padding: EdgeInsets.symmetric(
+                      horizontal: data.paddingHorizontalHeader,
+                    ),
+                    child: buttonWidget,
+                  );
+                }).toList(),
               ),
             ),
           if (data.buttons != null)

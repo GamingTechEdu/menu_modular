@@ -21,8 +21,6 @@ class MyWidget extends StatelessWidget {
   }
 }
 
-
-
 class Teste extends StatelessWidget {
   const Teste({super.key});
 

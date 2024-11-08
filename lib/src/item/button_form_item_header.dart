@@ -12,7 +12,7 @@ class ButtonFormItemHeader extends StatefulWidget {
 class _ButtonFormItemHeaderState extends State<ButtonFormItemHeader> {
   @override
   Widget build(BuildContext context) {
-    // var teste = MediaQuery.of(context).size.width;
+
     return IconButton(
       icon: widget.data.icon!,
       onPressed: widget.data.onPressed,
