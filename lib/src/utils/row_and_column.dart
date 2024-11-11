@@ -70,16 +70,7 @@ class _RowAndColumnState extends State<RowAndColumn> {
       listChildren.add(Row(children: listLabelValue));
     }
 
-    // Adiciona uma mensagem de erro se houver erro no estado do formulário
-    if (widget.state.hasError) {
-      listChildren.add(Padding(
-        padding: const EdgeInsets.all(5.0),
-        child: Text(
-          widget.state.errorText!,
-          style: const TextStyle(color: Colors.red),
-        ),
-      ));
-    }
+    
 
     return Column(
       children: listChildren,

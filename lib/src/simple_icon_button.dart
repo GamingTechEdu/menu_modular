@@ -3,6 +3,11 @@ import 'package:menu_modular/src/data/form_icon_button_data.dart';
 
 import 'utils/row_and_column.dart';
 
+//constraints.maxWidth ==> Largura atual
+//numero de colunas atuais ==> maxColumns
+//maxWidth ==> 50
+
+
 class SimpleIconButton extends FormField<List<OptionItem>> {
   final List<OptionItem> options;
   final double minWidth;
@@ -18,10 +23,16 @@ class SimpleIconButton extends FormField<List<OptionItem>> {
             // Método que constrói a grade de radio buttons
             dynamic rowAndColumn(BoxConstraints constraints) {
               int maxColumns = (constraints.maxWidth / maxWidth).round();
+              //Divido a largura atual da minha tela por maxWidth que foi definido por mim (50 neste caso)
+              //e depois arredondo com round()
               double columnMaxWidth = constraints.maxWidth / maxColumns;
-
-              BoxConstraints boxConstraints =
-                  BoxConstraints(maxWidth: columnMaxWidth);
+              //divido a largura atual da minha tela pelo némero de colunas maxColumns
+              
+              // print("Número Coluns ==> $maxColumns");
+              print("columnMaxWidth ==> $columnMaxWidth");
+              
+              BoxConstraints boxConstraints = BoxConstraints(maxWidth: columnMaxWidth);
+          
               if (boxConstraints.maxWidth > maxWidth) {
                 boxConstraints = BoxConstraints(maxWidth: maxWidth);
               }

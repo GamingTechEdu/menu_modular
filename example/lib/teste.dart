@@ -20,10 +20,10 @@ class MyApp extends StatelessWidget {
       minWidth: 100,
       options: [
         OptionItem(
-          onPressed: () => print("1"),
           id: "1",
           value: "Teste",
           icon: Icons.add,
+          onPressed: () => print("1"),
         ),
         OptionItem(
           onPressed: () => print("2"),
