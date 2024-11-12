@@ -12,12 +12,11 @@ class ButtonFormItemHeader extends StatefulWidget {
 class _ButtonFormItemHeaderState extends State<ButtonFormItemHeader> {
   @override
   Widget build(BuildContext context) {
-
     return IconButton(
+      focusColor: Colors.transparent,
+      hoverColor: Colors.transparent,
+      onPressed: () => widget.data.onPressed(),
       icon: widget.data.icon!,
-      onPressed: widget.data.onPressed,
-      color: widget.data.backgroundColor,
-      // child: Text(teste.toString()),
     );
   }
 }

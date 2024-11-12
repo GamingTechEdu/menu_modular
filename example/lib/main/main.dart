@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:menu_modular/export.dart';
 
-import '../ui/menu_functions/menu_functions.dart';
-
 void main() {
   runApp(
     const MaterialApp(
@@ -30,21 +28,20 @@ class Teste extends StatelessWidget {
       data: MenuFormData(
         paddingHorizontalHeader: 5,
         paddingExternalHeader: const EdgeInsets.only(bottom: 0.0),
-        headerButtons: [
-          HeaderRowDataButtons(
-            onPressed: () => print("01"),
-            icon: const Icon(Icons.add),
-          ),
-          HeaderRowDataButtons(
-            onPressed: () => print("02"),
-            icon: const Icon(Icons.refresh),
-          ),
-          HeaderRowDataButtons(
-            onPressed: () => print("03"),
-            icon: const Icon(Icons.add),
-          ),
-          TextHeaderRowDataButtons(onTap: () {}, title: "Teste1")
-        ],
+        // headerButtons: [
+        //   HeaderRowDataButtons(
+        //     onPressed: () => print("01"),
+        //     icon: const Icon(Icons.add),
+        //   ),
+        //   HeaderRowDataButtons(
+        //     onPressed: () => print("02"),
+        //     icon: const Icon(Icons.refresh),
+        //   ),
+        //   HeaderRowDataButtons(
+        //     onPressed: () => print("03"),
+        //     icon: const Icon(Icons.add),
+        //   ),
+        // ],
         buttons: [
           MenuFormItemDataTile(
             title: "Incluir",

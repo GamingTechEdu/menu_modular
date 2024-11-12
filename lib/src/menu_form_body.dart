@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-
 import 'data/data.dart';
-import 'item/button_form_text_header.dart';
 import 'item/item.dart';
 import 'utils/utils.dart';
 
@@ -19,7 +17,7 @@ class MenuFormBody extends StatelessWidget {
       width: MediaQuery.of(context).size.width,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: [
+        children: [    
           if (data.headerButtons != null)
             Padding(
               padding: data.paddingExternalHeader ??
@@ -29,9 +27,7 @@ class MenuFormBody extends StatelessWidget {
                   Widget buttonWidget;
                   if (button is HeaderRowDataButtons) {
                     buttonWidget = ButtonFormItemHeader(data: button);
-                  } else if (button is TextHeaderRowDataButtons){
-                    buttonWidget = TextButtonFormItemHeader(data: button);
-                  }else {
+                  } else {
                     buttonWidget = Container();
                   }
                   return Padding(
