@@ -5,7 +5,7 @@ import '../data/form_icon_button_data.dart';
 class ButtonIcon extends StatefulWidget {
   final OptionItem optionItem;
 
-  ButtonIcon({
+  const ButtonIcon({
     super.key,
     required this.optionItem,
   });
@@ -22,7 +22,6 @@ class _ButtonIconState extends State<ButtonIcon> {
         if (widget.optionItem.isPopUp == true)
           PopupMenuButton<String>(
             icon: Icon(widget.optionItem.icon!),
-            // color: widget.optionItem,
             onSelected: (String value) {
               print("Opção selecionada: $value");
             },

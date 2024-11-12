@@ -17,7 +17,21 @@ class MenuFormBody extends StatelessWidget {
       width: MediaQuery.of(context).size.width,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: [    
+        children: [
+          if (data.inputs != null)
+            Expanded(
+              child: ListView.builder(
+                controller: ScrollController(),
+                itemCount: data.inputs!.length,
+                itemBuilder: (context, index) {
+                  final MenuFormItemData button = data.inputs![index];
+                  if (button is InputsMenuForm) {
+                    return MenuInput(data: button);
+                  }
+                  return null;
+                },
+              ),
+            ),
           if (data.headerButtons != null)
             Padding(
               padding: data.paddingExternalHeader ??

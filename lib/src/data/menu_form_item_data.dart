@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 import '../utils/utils.dart';
 
@@ -50,10 +51,27 @@ class HeaderRowDataButtons extends MenuFormItemData {
   final List<PopupMenuEntry<String>> Function(BuildContext)? itemBuilder;
 
   HeaderRowDataButtons({
-    this.itemBuilder, 
+    this.itemBuilder,
     required this.onPressed,
     this.icon,
     this.backgroundColor,
   }) : super();
 }
 
+class InputsMenuForm<T> extends MenuFormItemData {
+  final Color? color;
+  final String? errorText;
+  final List<TextInputFormatter>? inputFormatters;
+  void Function(String)? onChanged;
+  final String? labelText;
+  final Stream<T?>? stream;
+
+  InputsMenuForm({
+    this.stream,
+    this.labelText,
+    this.errorText,
+    this.color,
+    this.inputFormatters,
+    required this.onChanged,
+  });
+}

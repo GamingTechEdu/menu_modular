@@ -26,50 +26,68 @@ class Teste extends StatelessWidget {
   Widget build(BuildContext context) {
     return MenuFormBody(
       data: MenuFormData(
-        paddingHorizontalHeader: 5,
-        paddingExternalHeader: const EdgeInsets.only(bottom: 0.0),
-        // headerButtons: [
-        //   HeaderRowDataButtons(
-        //     onPressed: () => print("01"),
-        //     icon: const Icon(Icons.add),
-        //   ),
-        //   HeaderRowDataButtons(
-        //     onPressed: () => print("02"),
-        //     icon: const Icon(Icons.refresh),
-        //   ),
-        //   HeaderRowDataButtons(
-        //     onPressed: () => print("03"),
-        //     icon: const Icon(Icons.add),
-        //   ),
-        // ],
-        buttons: [
-          MenuFormItemDataTile(
-            title: "Incluir",
-            icon: const Icon(Icons.add_box_outlined),
-            onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => const Teste(),
-                ),
-              );
-            },
-          ),
-          MenuFormItemDataTile(
-              title: "Editar aaaaaaSIMUC",
-              icon: const Icon(Icons.place),
-              onTap: () {}),
-          MenuFormItemDataTile(
-              title: "Exportar Relatório",
-              icon: const Icon(Icons.play_arrow),
-              onTap: () {}),
-          MenuFormItemDataTile(
-            title: "Excluir SIMUC",
-            icon: const Icon(Icons.cabin),
-            onTap: () {},
-          ),
-        ],
-      ),
+          paddingHorizontalHeader: 5,
+          paddingExternalHeader: const EdgeInsets.only(bottom: 0.0),
+          // headerButtons: [
+          //   HeaderRowDataButtons(
+          //     onPressed: () => print("01"),
+          //     icon: const Icon(Icons.add),
+          //   ),
+          //   HeaderRowDataButtons(
+          //     onPressed: () => print("02"),
+          //     icon: const Icon(Icons.refresh),
+          //   ),
+          //   HeaderRowDataButtons(
+          //     onPressed: () => print("03"),
+          //     icon: const Icon(Icons.add),
+          //   ),
+          // ],
+          buttons: [
+            MenuFormItemDataTile(
+              title: "Incluir",
+              icon: const Icon(Icons.add_box_outlined),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const Teste(),
+                  ),
+                );
+              },
+            ),
+            MenuFormItemDataTile(
+                title: "Editar aaaaaaSIMUC",
+                icon: const Icon(Icons.place),
+                onTap: () {}),
+            MenuFormItemDataTile(
+                title: "Exportar Relatório",
+                icon: const Icon(Icons.play_arrow),
+                onTap: () {}),
+            MenuFormItemDataTile(
+              title: "Excluir SIMUC",
+              icon: const Icon(Icons.cabin),
+              onTap: () {},
+            ),
+          ],
+          inputs: [
+            InputsMenuForm(
+              labelText: "Teste1",
+              onChanged: (value) => print(value),
+            ),
+            InputsMenuForm(
+              labelText: "Teste2",
+              onChanged: (value) => print(value),
+            ),
+            InputsMenuForm(
+              labelText: "Teste3",
+              onChanged: (value) => print(value),
+            ),
+          ]),
     );
   }
 }
+
+// <TextInputFormatter>[
+//             FilteringTextInputFormatter.digitsOnly,
+//             LengthLimitingTextInputFormatter(10),  
+//           ],
