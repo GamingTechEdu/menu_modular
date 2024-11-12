@@ -19,7 +19,9 @@ class _MenuInputState<T> extends State<MenuInput<T>> {
         return TextFormField(
           decoration: InputDecoration(
             labelText: widget.data.labelText,
-            errorText: widget.data.errorTextBuilder!(snapshot.data),
+            errorText: widget.data.errorTextBuilder != null
+                ? widget.data.errorTextBuilder!(snapshot.data)
+                : null,
           ),
           inputFormatters: widget.data.inputFormatters,
           onChanged: widget.data.onChanged,
