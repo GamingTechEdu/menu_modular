@@ -6,8 +6,10 @@ class OptionItem<T> {
   final IconData? icon;
   final bool isPopUp;
   final VoidCallback onPressed;
+  final List<PopupMenuEntry<String>> Function(BuildContext)? itemBuilder;
 
   OptionItem({
+    this.itemBuilder,
     this.isPopUp = false, 
     required this.onPressed, 
     required this.value,

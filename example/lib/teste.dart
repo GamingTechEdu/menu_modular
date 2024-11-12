@@ -20,11 +20,25 @@ class MyApp extends StatelessWidget {
       minWidth: 100,
       options: [
         OptionItem(
-          isPopUp: true,
           id: "1",
           value: "Teste",
           icon: Icons.add,
           onPressed: () => print("1"),
+          isPopUp: true,
+          itemBuilder: (BuildContext context) => <PopupMenuEntry<String>>[
+            const PopupMenuItem<String>(
+              value: 'incluirSimuc',
+              child: Text('Incluir Simuc'),
+            ),
+            const PopupMenuItem<String>(
+              value: 'incluirSrecuperacao',
+              child: Text('Incluir S/ Recuperação'),
+            ),
+            const PopupMenuItem<String>(
+              value: 'Opção 3',
+              child: Text('Opção 3'),
+            ),
+          ],
         ),
         OptionItem(
           onPressed: () => print("2"),
