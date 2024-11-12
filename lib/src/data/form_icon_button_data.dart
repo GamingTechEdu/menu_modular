@@ -4,9 +4,11 @@ class OptionItem<T> {
   T value;
   final String id;
   final IconData? icon;
+  final bool isPopUp;
   final VoidCallback onPressed;
 
   OptionItem({
+    this.isPopUp = false, 
     required this.onPressed, 
     required this.value,
     required this.id,

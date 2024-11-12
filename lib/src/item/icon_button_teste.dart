@@ -19,12 +19,35 @@ class _ButtonIconState extends State<ButtonIcon> {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        IconButton(
-          focusColor: Colors.transparent,
-          hoverColor: Colors.transparent,
-          onPressed: () => widget.optionItem.onPressed(),
-          icon: Icon(widget.optionItem.icon),
-        )
+        if (widget.optionItem.isPopUp == true)
+          PopupMenuButton<String>(
+            icon: Icon(widget.optionItem.icon!),
+            // color: widget.optionItem,
+            onSelected: (String value) {
+              print("Opção selecionada: $value");
+            },
+            itemBuilder: (BuildContext context) => <PopupMenuEntry<String>>[
+              const PopupMenuItem<String>(
+                value: 'Opção 1',
+                child: Text('Incluir Simuc'),
+              ),
+              const PopupMenuItem<String>(
+                value: 'Opção 2',
+                child: Text('Opção 2'),
+              ),
+              const PopupMenuItem<String>(
+                value: 'Opção 3',
+                child: Text('Opção 3'),
+              ),
+            ],
+          ),
+        if (widget.optionItem.isPopUp == false)
+          IconButton(
+            focusColor: Colors.transparent,
+            hoverColor: Colors.transparent,
+            onPressed: () => widget.optionItem.onPressed(),
+            icon: Icon(widget.optionItem.icon),
+          )
       ],
     );
   }

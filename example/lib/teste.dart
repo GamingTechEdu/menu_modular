@@ -20,6 +20,7 @@ class MyApp extends StatelessWidget {
       minWidth: 100,
       options: [
         OptionItem(
+          isPopUp: true,
           id: "1",
           value: "Teste",
           icon: Icons.add,
