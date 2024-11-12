@@ -60,7 +60,7 @@ class HeaderRowDataButtons extends MenuFormItemData {
 
 class InputsMenuForm<T> extends MenuFormItemData {
   final Color? color;
-  final String? errorText;
+  final String? Function(T?)? errorTextBuilder;
   final List<TextInputFormatter>? inputFormatters;
   void Function(String)? onChanged;
   final String? labelText;
@@ -69,7 +69,7 @@ class InputsMenuForm<T> extends MenuFormItemData {
   InputsMenuForm({
     this.stream,
     this.labelText,
-    this.errorText,
+    this.errorTextBuilder,
     this.color,
     this.inputFormatters,
     required this.onChanged,
