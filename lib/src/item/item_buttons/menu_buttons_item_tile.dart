@@ -1,21 +1,21 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 
-import '../data/data.dart';
-import '../utils/utils.dart';
+import '../../data/data.dart';
+import '../../utils/utils.dart';
 
-class MenuFormItemTile extends StatefulWidget {
-  final MenuFormItemDataTile data;
-  const MenuFormItemTile({
+class MenuButtonsItemTile extends StatefulWidget {
+  final MenuButtonsItemDataTile data;
+  const MenuButtonsItemTile({
     super.key,
     required this.data,
   });
 
   @override
-  State<MenuFormItemTile> createState() => _MenuFormItemTileState();
+  State<MenuButtonsItemTile> createState() => _MenuButtonsItemTileState();
 }
 
-class _MenuFormItemTileState extends State<MenuFormItemTile> {
+class _MenuButtonsItemTileState extends State<MenuButtonsItemTile> {
   bool isHover = false;
   @override
   Widget build(BuildContext context) {

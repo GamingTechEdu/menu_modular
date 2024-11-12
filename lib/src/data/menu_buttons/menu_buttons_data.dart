@@ -1,16 +1,13 @@
 import 'package:flutter/material.dart';
 
-import 'menu_form_item_data.dart';
+import 'menu_buttons_item_data.dart';
 
-class MenuFormData {
-  final List<MenuFormItemData>? buttons;
-  final List<MenuFormItemData>? headerButtons;
-  final List<MenuFormItemData>? inputs;
+class MenuButtonsData {
+  final List<MenuButtosnItemData>? buttons, headerButtons;
   final EdgeInsetsGeometry? paddingExternalHeader;
   final double paddingHorizontalHeader;
 
-  MenuFormData({
-    this.inputs,
+  MenuButtonsData({
     this.paddingHorizontalHeader = 4.0, 
     this.paddingExternalHeader,
     this.headerButtons,

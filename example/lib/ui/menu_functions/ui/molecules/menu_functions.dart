@@ -12,10 +12,10 @@ class MenuFunctions extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MenuFormBody(
-      data: MenuFormData(
+    return MenuButtonsBody(
+      data: MenuButtonsData(
         buttons: [
-          MenuFormItemDataTile(
+          MenuButtonsItemDataTile(
             itemHeight: 40,
             title: "Gerar AR",
             icon: const Icon(Icons.add_box_outlined, size: 25),
@@ -23,7 +23,7 @@ class MenuFunctions extends StatelessWidget {
               onPressed(EnumMenuFunction.simucInclude);
             },
           ),
-          MenuFormItemDataTile(
+          MenuButtonsItemDataTile(
             itemHeight: 40,
             title: "Editar SIMUC",
             icon: const Icon(Icons.edit, size: 25),
@@ -31,13 +31,13 @@ class MenuFunctions extends StatelessWidget {
               onPressed(EnumMenuFunction.simucEdit);
             },
           ),
-          MenuFormItemDataTile(
+          MenuButtonsItemDataTile(
             itemHeight: 40,
             title: "Exportar Relatório",
             icon: const Icon(Icons.chair_alt, size: 25),
             onTap: () {},
           ),
-          MenuFormItemDataTile(
+          MenuButtonsItemDataTile(
             itemHeight: 40,
             title: "Excluir SIMUC",
             icon: const Icon(Icons.delete, size: 25),

@@ -11,7 +11,7 @@ class GenerateArDocEntrance extends StatefulWidget {
 class _GenerateArDocEntranceState extends State<GenerateArDocEntrance> {
   @override
   Widget build(BuildContext context) {
-    bool isChecked = false;
+    // bool isChecked = false;
     return Column(
       children: [
         TextFormField(

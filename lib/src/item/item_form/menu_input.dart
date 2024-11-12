@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:menu_modular/export.dart';
+import '../../data/data.dart';
 
-class MenuInput<T> extends StatefulWidget {
-  final InputsMenuForm<T> data;
+class CommonInput<T> extends StatefulWidget {
+  final CommonInputData<T> data;
 
-  const MenuInput({super.key, required this.data});
+  const CommonInput({super.key, required this.data});
 
   @override
-  State<MenuInput<T>> createState() => _MenuInputState<T>();
+  State<CommonInput<T>> createState() => _CommonInputState<T>();
 }
 
-class _MenuInputState<T> extends State<MenuInput<T>> {
+class _CommonInputState<T> extends State<CommonInput<T>> {
   @override
   Widget build(BuildContext context) {
     return StreamBuilder<T?>(

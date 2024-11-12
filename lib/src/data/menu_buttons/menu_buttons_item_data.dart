@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-import '../utils/utils.dart';
+import '../../utils/utils.dart';
 
-abstract class MenuFormItemData {
-  const MenuFormItemData();
+
+abstract class MenuButtosnItemData {
+  const MenuButtosnItemData();
 }
 
-class MenuFormItemDataTile extends MenuFormItemData {
+class MenuButtonsItemDataTile extends MenuButtosnItemData {
   final String? title;
   final Widget? icon;
   final Widget? iconLeading;
@@ -23,7 +24,7 @@ class MenuFormItemDataTile extends MenuFormItemData {
   final EdgeInsetsDirectional margin;
   final Color? hoverColor, highlightSelectedColor;
 
-  MenuFormItemDataTile({
+  MenuButtonsItemDataTile({
     this.elevation,
     required this.onTap,
     this.iconLeading,
@@ -44,7 +45,7 @@ class MenuFormItemDataTile extends MenuFormItemData {
         super();
 }
 
-class HeaderRowDataButtons extends MenuFormItemData {
+class HeaderRowDataButtons extends MenuButtosnItemData {
   final Widget? icon;
   final Color? backgroundColor;
   final VoidCallback onPressed;
@@ -58,20 +59,3 @@ class HeaderRowDataButtons extends MenuFormItemData {
   }) : super();
 }
 
-class InputsMenuForm<T> extends MenuFormItemData {
-  final Color? color;
-  final String? Function(T?)? errorTextBuilder;
-  final List<TextInputFormatter>? inputFormatters;
-  void Function(String)? onChanged;
-  final String? labelText;
-  final Stream<T?>? stream;
-
-  InputsMenuForm({
-    this.stream,
-    this.labelText,
-    this.errorTextBuilder,
-    this.color,
-    this.inputFormatters,
-    required this.onChanged,
-  });
-}

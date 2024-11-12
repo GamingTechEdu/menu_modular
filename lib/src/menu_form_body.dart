@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'data/data.dart';
 import 'item/item.dart';
-import 'utils/utils.dart';
 
 class MenuFormBody extends StatelessWidget {
   final MenuFormData data;
@@ -13,7 +12,7 @@ class MenuFormBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: Constants.padding,
+      padding: data.padding,
       width: MediaQuery.of(context).size.width,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -25,43 +24,8 @@ class MenuFormBody extends StatelessWidget {
                 itemCount: data.inputs!.length,
                 itemBuilder: (context, index) {
                   final MenuFormItemData button = data.inputs![index];
-                  if (button is InputsMenuForm) {
-                    return MenuInput(data: button);
-                  }
-                  return null;
-                },
-              ),
-            ),
-          if (data.headerButtons != null)
-            Padding(
-              padding: data.paddingExternalHeader ??
-                  const EdgeInsets.only(bottom: 8.0),
-              child: Row(
-                children: data.headerButtons!.map((button) {
-                  Widget buttonWidget;
-                  if (button is HeaderRowDataButtons) {
-                    buttonWidget = ButtonFormItemHeader(data: button);
-                  } else {
-                    buttonWidget = Container();
-                  }
-                  return Padding(
-                    padding: EdgeInsets.symmetric(
-                      horizontal: data.paddingHorizontalHeader,
-                    ),
-                    child: buttonWidget,
-                  );
-                }).toList(),
-              ),
-            ),
-          if (data.buttons != null)
-            Expanded(
-              child: ListView.builder(
-                controller: ScrollController(),
-                itemCount: data.buttons!.length,
-                itemBuilder: (context, index) {
-                  final MenuFormItemData button = data.buttons![index];
-                  if (button is MenuFormItemDataTile) {
-                    return MenuFormItemTile(data: button);
+                  if (button is CommonInputData) {
+                    return CommonInput(data: button);
                   }
                   return null;
                 },
