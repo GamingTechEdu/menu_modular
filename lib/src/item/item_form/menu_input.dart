@@ -15,7 +15,7 @@ class _CommonInputState<T> extends State<CommonInput<T>> {
   Widget build(BuildContext context) {
     return StreamBuilder<T?>(
       stream: widget.data.stream,
-      builder: (context, snapshot) {
+      builder: (context, AsyncSnapshot<T?> snapshot) {
         return TextFormField(
           decoration: InputDecoration(
             labelText: widget.data.labelText,
