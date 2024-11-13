@@ -12,6 +12,6 @@ export 'src/data/data.dart';
 export 'src/item/item.dart';
 export 'src/utils/spacing.dart';
 
-export 'src/utils/enum_menu_header.dart';
+export 'src/utils/utils.dart';
 
 
