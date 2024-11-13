@@ -15,7 +15,8 @@ class MenuFormBody extends StatelessWidget {
       child: Column(
         children: [
           if (data.inputs != null)
-            Expanded(
+            SizedBox(
+              height: 300, // Defina uma altura apropriada
               child: ListView.builder(
                 controller: ScrollController(),
                 itemCount: data.inputs!.length,
@@ -33,6 +34,7 @@ class MenuFormBody extends StatelessWidget {
     );
   }
 }
+
 
 //  Container(
 //       padding: data.padding,
