@@ -18,8 +18,7 @@ class MenuFormBody extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           if (data.inputs != null)
-            SizedBox(
-              height: 300,
+            Expanded(
               child: ListView.builder(
                 controller: ScrollController(),
                 itemCount: data.inputs!.length,
