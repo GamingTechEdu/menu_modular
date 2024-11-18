@@ -3,7 +3,6 @@ import 'package:flutter/services.dart';
 
 import '../../utils/utils.dart';
 
-
 abstract class MenuButtosnItemData {
   const MenuButtosnItemData();
 }
