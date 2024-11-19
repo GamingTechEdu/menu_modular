@@ -17,8 +17,8 @@ class CheckboxComponent extends StatelessWidget {
           shape: const RoundedRectangleBorder(
             borderRadius: BorderRadius.all(Radius.circular(5)),
           ),
-          checkColor: Colors.white,
-          activeColor: Colors.grey,
+          checkColor: Colors.orange,
+          activeColor: Colors.white,
           side: const BorderSide(
             color: Color.fromARGB(255, 126, 126, 126),
             width: 2,

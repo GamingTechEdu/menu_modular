@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import '../../data/table/table_header_item_data.dart';
 
 class TableItemHeader extends StatelessWidget {
-  final TableHeaderData data;
+  final TableItemHeaderData data;
   const TableItemHeader({super.key, required this.data});
 
   @override

@@ -16,6 +16,9 @@ export 'src/utils/utils.dart';
 
 export 'src/tokens/tokens.dart';
 
-export 'src/table_modular.dart';
+export 'src/table_body.dart';
+export 'src/item/item_table/table_modular.dart';
+export 'src/data/table/table_header_item_data.dart';
+
 
 

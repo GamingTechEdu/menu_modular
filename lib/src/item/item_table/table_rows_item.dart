@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 
-import '../../component/component.dart';
 import '../../data/table/table_header_item_data.dart';
+import 'checkbox_item.dart';
 
 class TableRows extends StatefulWidget {
-  final TableRowsData data;
+  final List<TableItemRowsData>? data;
+
   const TableRows({
     super.key,
     required this.data,
@@ -15,27 +16,26 @@ class TableRows extends StatefulWidget {
 }
 
 class _TableRowsState extends State<TableRows> {
-  var teste = false;
+  List<TableItemRowsData> selecteds = [];
 
-  bool change() {
-    if (teste == false) {
+  onSelect(value, TableItemRowsData item) async {
+    print(item);
+    if (value!) {
       setState(() {
-        teste = true;
+        selecteds.add(item);
       });
-      return teste;
     } else {
       setState(() {
-        teste = false;
+        selecteds.removeAt(selecteds.indexOf(item));
       });
-      return teste;
     }
   }
 
   List<Widget> desktopList() {
     List<Widget> widgets = [];
 
-    for (var index = 0; index < widget.data.label.length; index++) {
-      var data = widget.data.label[index];
+    for (var index = 0; index < widget.data!.length; index++) {
+      var data = widget.data![index];
 
       widgets.add(
         Column(
@@ -44,37 +44,37 @@ class _TableRowsState extends State<TableRows> {
               padding: const EdgeInsets.only(
                 top: 0,
                 bottom: 1,
-                left: 8,
-                right: 8,
+                left: 2,
+                right: 2,
               ),
               child: Container(
                 padding: const EdgeInsets.all(0),
-                decoration: const BoxDecoration(
-                  borderRadius: BorderRadius.all(Radius.circular(3)),
-                  color: Color(0xffD9D9D9),
-                ),
+                decoration: selecteds.contains(data)
+                    ? const BoxDecoration(
+                        borderRadius: BorderRadius.all(Radius.circular(3)),
+                        color: Colors.orange,
+                      )
+                    : const BoxDecoration(
+                        borderRadius: BorderRadius.all(Radius.circular(3)),
+                        color: Color(0xffD9D9D9),
+                      ),
                 child: InkWell(
                   splashColor: Colors.transparent,
                   highlightColor: Colors.transparent,
                   onTap: () {
-                    change();
-                    print(data);
                   },
                   child: Row(
-                    mainAxisSize: MainAxisSize.min,
                     children: [
-                      Row(
-                        children: [
-                          CheckboxComponent(
-                            value: teste,
-                            onChanged: (value) => change(),
-                          )
-                        ],
-                      ),
+                      if (data.checkbox)
+                        CheckboxComponent(
+                          value: selecteds.contains(data),
+                          onChanged: (value) => onSelect(value, data),
+                        ),
                       Expanded(
                         child: Text(
-                          data,
+                          data.label.toString(),
                           style: const TextStyle(fontSize: 12),
+                          textAlign: data.textAlign,
                         ),
                       ),
                     ],

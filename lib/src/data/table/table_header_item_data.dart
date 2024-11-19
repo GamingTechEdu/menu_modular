@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 
-abstract class TableData {
-  const TableData();
+abstract class TableHeaderData {
+  const TableHeaderData();
 }
 
-class TableHeaderData extends TableData {
+class TableItemHeaderData extends TableHeaderData {
   final String label;
   bool show;
   final int flex;
   final Alignment textAlign;
   final Widget Function(dynamic value, dynamic row)? sourceBuilder;
 
-  TableHeaderData({
+  TableItemHeaderData({
     this.flex = 1,
     this.textAlign = Alignment.center,
     this.show = true,
@@ -20,19 +20,18 @@ class TableHeaderData extends TableData {
   });
 }
 
-class TableRowsData extends TableData {
-  final List<String> label;
-  bool show;
+class TableItemRowsData extends TableHeaderData {
+  final String label;
+  final String? valueCheckBox;
   final int flex;
-  final Alignment textAlign;
-  final Widget Function(dynamic value, dynamic row)? sourceBuilder;
+  final TextAlign? textAlign;
+  final bool checkbox;
 
-  TableRowsData({
+  TableItemRowsData({
+    this.checkbox = true,
+    this.valueCheckBox,
     this.flex = 1,
-    this.textAlign = Alignment.center,
-    this.show = true,
+    this.textAlign = TextAlign.center,
     required this.label,
-    this.sourceBuilder,
   });
 }
-
