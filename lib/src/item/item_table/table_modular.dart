@@ -27,27 +27,7 @@ class TableDefects extends StatelessWidget {
         child: Column(
           children: [
             if (header != null)
-              Padding(
-                padding: const EdgeInsets.all(2.0),
-                child: Row(
-                  children: [
-                    Expanded(
-                      child: Container(
-                        height: 20,
-                        color: const Color(0xFFD9D9D9),
-                        alignment: header?.textAlign,
-                        child: Text(
-                          header!.label,
-                          style: const TextStyle(
-                            fontSize: 12,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
+              TableItemHeader(data: header),
             if (data != null)
               TableRows(data: data)
           ],

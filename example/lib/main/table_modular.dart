@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
         title: "Defeito Relatado",
         widgets: [
           TableDefects(
-            width: 130,
+            width: 150,
             header: TableItemHeaderData(
               label: 'Defeitos',
             ),
@@ -37,26 +37,56 @@ class MyApp extends StatelessWidget {
               TableItemRowsData(label: "Lux Baixo", valueCheckBox: "8"),
             ],
           ),
+          // Column(
+          //   mainAxisAlignment: MainAxisAlignment.center,
+          //   children: [
+          //     IconButton(
+          //       icon: const Icon(Icons.keyboard_double_arrow_right_rounded,
+          //           size: 35),
+          //       onPressed: () {},
+          //     ),
+          //     const SizedBox(
+          //       height: 20,
+          //     ),
+          //     IconButton(
+          //       icon: const Icon(Icons.keyboard_double_arrow_left_rounded,
+          //           size: 35),
+          //       onPressed: () {},
+          //     ),
+          //   ],
+          // ),
           Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              IconButton(
-                icon: const Icon(Icons.keyboard_double_arrow_right_rounded,
-                    size: 35),
-                onPressed: () {},
+              InkWell(
+                focusColor: Colors.transparent,
+                hoverColor: Colors.transparent,
+                highlightColor: Colors.transparent,
+                overlayColor: WidgetStateProperty.all(Colors.transparent),
+                child: const Icon(
+                  Icons.keyboard_double_arrow_right_rounded,
+                  size: 35,
+                ),
+                onTap: () => {print("forward")},
               ),
               const SizedBox(
                 height: 20,
               ),
-              IconButton(
-                icon: const Icon(Icons.keyboard_double_arrow_left_rounded,
-                    size: 35),
-                onPressed: () {},
+              InkWell(
+                focusColor: Colors.transparent,
+                hoverColor: Colors.transparent,
+                highlightColor: Colors.transparent,
+                overlayColor: WidgetStateProperty.all(Colors.transparent),
+                child: const Icon(
+                  Icons.keyboard_double_arrow_left_rounded,
+                  size: 35,
+                ),
+                onTap: () => {print("back")},
               ),
             ],
           ),
           TableDefects(
-            width: 130,
+            width: 150,
             header: TableItemHeaderData(
               label: 'Defeitos Atribuídos',
             ),
