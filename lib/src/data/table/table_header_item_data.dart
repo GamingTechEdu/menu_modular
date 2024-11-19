@@ -35,3 +35,7 @@ class TableItemRowsData extends TableHeaderData {
     required this.label,
   });
 }
+
+class ControlItemData extends TableHeaderData{
+  
+}

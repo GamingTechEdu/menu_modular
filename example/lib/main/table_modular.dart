@@ -37,24 +37,6 @@ class MyApp extends StatelessWidget {
               TableItemRowsData(label: "Lux Baixo", valueCheckBox: "8"),
             ],
           ),
-          // Column(
-          //   mainAxisAlignment: MainAxisAlignment.center,
-          //   children: [
-          //     IconButton(
-          //       icon: const Icon(Icons.keyboard_double_arrow_right_rounded,
-          //           size: 35),
-          //       onPressed: () {},
-          //     ),
-          //     const SizedBox(
-          //       height: 20,
-          //     ),
-          //     IconButton(
-          //       icon: const Icon(Icons.keyboard_double_arrow_left_rounded,
-          //           size: 35),
-          //       onPressed: () {},
-          //     ),
-          //   ],
-          // ),
           Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [

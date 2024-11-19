@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import '../../../export.dart';
-import '../../data/table/table_header_item_data.dart';
 
 class TableDefects extends StatelessWidget {
   final double? width;
