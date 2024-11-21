@@ -15,11 +15,10 @@ class TableDefects extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print(MediaQuery.of(context).size.width);
     return Padding(
       padding: const EdgeInsets.all(2.0),
       child: Container(
-        width: (MediaQuery.of(context).size.width / 2.1) - 30,
+        width: (MediaQuery.of(context).size.width / 2.5),
         decoration: BoxDecoration(
           border: Border.all(color: const Color(0xFFBAB8B8), width: 4),
           borderRadius: BorderRadius.circular(10),

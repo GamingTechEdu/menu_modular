@@ -1,15 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
-class TableBody extends StatelessWidget {
+import 'data/table/table_body_data.dart';
+
+class TableBodyContainer extends StatelessWidget {
   final double? width;
   final double? height;
   final String title;
   final List<Widget> widgets;
-  const TableBody({
+  // final TableContainerBodyData data;
+  const TableBodyContainer({
     super.key,
     required this.title,
     required this.widgets,
+    // required this.data,
     this.width = 500,
     this.height = 200,
   });
@@ -22,7 +26,7 @@ class TableBody extends StatelessWidget {
           children: [Text(title)],
         ),
         Container(
-          width: width,
+          width: MediaQuery.of(context).size.width,
           height: height,
           decoration: BoxDecoration(
             border: Border.all(color: const Color(0xFFBAB8B8), width: 4),

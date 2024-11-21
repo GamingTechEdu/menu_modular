@@ -28,20 +28,20 @@ class Teste extends StatelessWidget {
       data: MenuButtonsData(
         paddingHorizontalHeader: 5,
         paddingExternalHeader: const EdgeInsets.only(bottom: 0.0),
-        // headerButtons: [
-        //   HeaderRowDataButtons(
-        //     onPressed: () => print("01"),
-        //     icon: const Icon(Icons.add),
-        //   ),
-        //   HeaderRowDataButtons(
-        //     onPressed: () => print("02"),
-        //     icon: const Icon(Icons.refresh),
-        //   ),
-        //   HeaderRowDataButtons(
-        //     onPressed: () => print("03"),
-        //     icon: const Icon(Icons.add),
-        //   ),
-        // ],
+        headerButtons: [
+          HeaderRowDataButtons(
+            onPressed: () => print("01"),
+            icon: const Icon(Icons.add),
+          ),
+          HeaderRowDataButtons(
+            onPressed: () => print("02"),
+            icon: const Icon(Icons.refresh),
+          ),
+          HeaderRowDataButtons(
+            onPressed: () => print("03"),
+            icon: const Icon(Icons.add),
+          ),
+        ],
         buttons: [
           MenuButtonsItemDataTile(
             title: "Incluir",
@@ -69,13 +69,7 @@ class Teste extends StatelessWidget {
             onTap: () {},
           ),
         ],
-        
       ),
     );
   }
 }
-
-// <TextInputFormatter>[
-//             FilteringTextInputFormatter.digitsOnly,
-//             LengthLimitingTextInputFormatter(10),  
-//           ],
