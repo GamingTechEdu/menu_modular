@@ -52,6 +52,12 @@ class MenuButtonsBody extends StatelessWidget {
                   return null;
                 },
               ),
+            ),
+          if (data.tableModular != null)
+            Container(
+              color: Colors.black,
+              width: 100,
+              height: 100,
             )
         ],
       ),

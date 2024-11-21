@@ -7,6 +7,12 @@ abstract class MenuButtosnItemData {
   const MenuButtosnItemData();
 }
 
+
+class TableModularItem extends MenuButtosnItemData{
+  final Color? color;
+  TableModularItem({this.color});
+}
+
 class MenuButtonsItemDataTile extends MenuButtosnItemData {
   final String? title;
   final Widget? icon;

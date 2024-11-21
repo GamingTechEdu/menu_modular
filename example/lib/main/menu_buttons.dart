@@ -69,6 +69,10 @@ class Teste extends StatelessWidget {
             onTap: () {},
           ),
         ],
+        tableModular: TableModularItem(
+          color: Colors.red
+        )
+
       ),
     );
   }
