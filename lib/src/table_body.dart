@@ -22,7 +22,7 @@ class TableBody extends StatelessWidget {
           children: [Text(title)],
         ),
         Container(
-          width: width,
+          width: MediaQuery.of(context).size.width,
           height: height,
           decoration: BoxDecoration(
             border: Border.all(color: const Color(0xFFBAB8B8), width: 4),

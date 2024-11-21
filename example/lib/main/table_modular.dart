@@ -37,35 +37,37 @@ class MyApp extends StatelessWidget {
               TableItemRowsData(label: "Lux Baixo", valueCheckBox: "8"),
             ],
           ),
-          Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              InkWell(
-                focusColor: Colors.transparent,
-                hoverColor: Colors.transparent,
-                highlightColor: Colors.transparent,
-                overlayColor: WidgetStateProperty.all(Colors.transparent),
-                child: const Icon(
-                  Icons.keyboard_double_arrow_right_rounded,
-                  size: 35,
+          Container(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                InkWell(
+                  focusColor: Colors.transparent,
+                  hoverColor: Colors.transparent,
+                  highlightColor: Colors.transparent,
+                  overlayColor: WidgetStateProperty.all(Colors.transparent),
+                  child: const Icon(
+                    Icons.keyboard_double_arrow_right_rounded,
+                    size: 35,
+                  ),
+                  onTap: () => {print("forward")},
                 ),
-                onTap: () => {print("forward")},
-              ),
-              const SizedBox(
-                height: 20,
-              ),
-              InkWell(
-                focusColor: Colors.transparent,
-                hoverColor: Colors.transparent,
-                highlightColor: Colors.transparent,
-                overlayColor: WidgetStateProperty.all(Colors.transparent),
-                child: const Icon(
-                  Icons.keyboard_double_arrow_left_rounded,
-                  size: 35,
+                const SizedBox(
+                  height: 20,
                 ),
-                onTap: () => {print("back")},
-              ),
-            ],
+                InkWell(
+                  focusColor: Colors.transparent,
+                  hoverColor: Colors.transparent,
+                  highlightColor: Colors.transparent,
+                  overlayColor: WidgetStateProperty.all(Colors.transparent),
+                  child: const Icon(
+                    Icons.keyboard_double_arrow_left_rounded,
+                    size: 35,
+                  ),
+                  onTap: () => {print("back")},
+                ),
+              ],
+            ),
           ),
           TableDefects(
             width: 150,
