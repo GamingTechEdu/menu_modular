@@ -36,6 +36,4 @@ class TableItemRowsData extends TableHeaderData {
   });
 }
 
-class ControlItemData extends TableHeaderData{
-  
-}
+class ControlItemData extends TableHeaderData{}
