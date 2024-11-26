@@ -11,6 +11,7 @@ export 'src/menu_form_body.dart';
 export 'src/data/data.dart';
 export 'src/item/item.dart';
 export 'src/utils/spacing.dart';
+export 'src/component/component.dart';
 
 export 'src/utils/utils.dart';
 
